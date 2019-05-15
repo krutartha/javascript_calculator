@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+    <title>calculator</title>
+</head>
+<link href="https://fonts.googleapis.com/css?family=Kodchasan" rel="stylesheet">
+<style>
+*{
+    font-family: 'Kodchasan', sans-serif;
+
+
+}
+body{
+    background: #000;
+}
+.wrapper{
+    height: 100%;
+}
+.container{
+    width: 300px;
+    height: 400px;
+    background-color: #ebaeae;
+    border-width: 1px;
+    border-radius: 5px 5px;
+    margin: 120px auto;
+}
+table{
+    border-color: #000;
+    width: 100%;
+    height: 100%;
+}
+button{
+    width: 100%;
+    height: 100%;
+    font-size: 24pt;
+    border: none;
+    margin: 0;
+}
+#inputLabel{
+    color: rgb(170, 170, 170);
+    overflow-x: auto;
+    width: 100%;
+    padding: 12px;
+    height: 20%;
+    font-size: 40pt;
+    vertical-align: bottom;
+    text-align: right;
+
+}
+</style>
+<body>
+    <div class="wrapper">
+            <div class="container">
+                    <table>
+                        <tr>
+                            <td id='inputLabel'colspan="4">0</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><button onclick="pushed(this)">AC</button></td>
+                            <td><button onclick="pushed(this)">/</button></td>
+                        </tr>
+                        <tr>
+                            <td><button onclick="pushed(this)">7</button></td>
+                            <td><button onclick="pushed(this)">8</button></td>
+                            <td><button onclick="pushed(this)">9</button></td>
+                            <td><button onclick="pushed(this)">*</button></td>
+                        <tr>
+                            <td><button onclick="pushed(this)">4</button></td>
+                            <td><button onclick="pushed(this)">5</button></td>
+                            <td><button onclick="pushed(this)">6</button></td>
+                            <td><button onclick="pushed(this)">-</button></td>
+                        </tr>
+                        <tr>
+                            <td><button onclick="pushed(this)">1</button></td>
+                            <td><button onclick="pushed(this)">2</button></td>
+                            <td><button onclick="pushed(this)">3</button></td>
+                            <td><button onclick="pushed(this)">+</button></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button onclick="pushed(this)">0</button></td>
+                            <td><button onclick="pushed(this)">.</button></td>
+                            <td><button onclick="pushed(this)">=</button></td>
+            
+                        </tr>
+            
+                    </table>
+                </div>
+    </div>
+
+    <script>
+        var inputLabel = document.getElementById('inputLabel');
+
+        function pushed(obj){
+            var pushed = obj.innerHTML; 
+
+            if(pushed == '='){
+               inputLabel.innerHTML = eval(inputLabel.innerHTML); 
+            }
+            else if(pushed == 'AC'){
+                inputLabel.innerHTML =  '0';
+            }
+
+            else{
+                if(inputLabel.innerHTML == '0'){
+                    inputLabel.innerHTML = pushed; 
+                }
+                else{
+                    inputLabel.innerHTML += pushed;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
